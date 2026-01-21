@@ -203,7 +203,7 @@ Distribución obtenida:
 - **Comprador ocasional:** 59 clientes
 
 <div align="center">
-  <img src="./docs/images/perfiles_dominantes.png" alt="Distribución del perfil dominante" width="780"/>
+  <img src="./docs/images/perfiles_dominantesV2.png" alt="Distribución del perfil dominante" width="780"/>
   <p><i>Distribución de clientes según el perfil con mayor pertenencia.</i></p>
 </div>
 
