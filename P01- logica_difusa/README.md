@@ -290,5 +290,8 @@ Al finalizar, el notebook genera el fichero de salida:
 
 ## 10. Autoría
 
-Práctica realizada por **Katrin Muñoz Errasti**
+Práctica realizada por 
+* **Katrin Muñoz Errasti**
+* **Asier Burgos**
+* **Ander Perez**
 Universidad de Deusto — Laboratorio de Inteligencia Artificial (2025/2026)
