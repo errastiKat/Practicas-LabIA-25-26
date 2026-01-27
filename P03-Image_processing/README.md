@@ -312,16 +312,9 @@ Interpretación esperada:
 ## 11. Estructura del proyecto
 
 ```text
-03-image-processing/
+P03-Image_processing/
 ├── docs/
 │   └── images/
-│       ├── fashion_mnist_samples.png
-│       ├── class_distribution.png
-│       ├── accuracy_loss_modelo3.png
-│       ├── confusion_matrix_modelo3.png
-│       ├── accuracy_loss_efficientnetb0.png
-│       ├── ablation_modelo_3_verde.png
-│       └── activaciones_modelo3.png
 ├── notebook/
 │   └── Práctica_03_Image_processing.ipynb
 └── README.md
