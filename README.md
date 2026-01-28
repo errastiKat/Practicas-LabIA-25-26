@@ -4,97 +4,99 @@
 
 ---
 
-Este repositorio recoge un conjunto de **prácticas aplicadas de Inteligencia Artificial** desarrolladas durante el curso 2025/2026 en la **Universidad de Deusto**.
+## Portfolio de Inteligencia Artificial  
+**Katrin Muñoz Errasti · Universidad de Deusto**
 
-Las prácticas cubren distintos paradigmas de la IA — desde modelos clásicos hasta enfoques de Deep Learning — combinando fundamentos teóricos, implementación práctica y análisis experimental.  
-Cada práctica incluye un **notebook ejecutable** y documentación técnica detallada.
+Este repositorio presenta una colección de **proyectos prácticos de Inteligencia Artificial**, desarrollados a lo largo del curso 2025/2026.  
+El objetivo no es únicamente implementar algoritmos, sino **analizar, comparar y aplicar distintas técnicas de IA** a problemas reales y datasets representativos.
 
-
----
-
-## Índice
-- [Resumen de prácticas](#resumen-de-prácticas)
-- [Descripción de las prácticas](#descripción-de-las-prácticas)
-- [Estructura del repositorio](#estructura-del-repositorio)
-- [Ejecución de los notebooks](#ejecución-de-los-notebooks)
-- [Autora](#autora)
+Las prácticas abarcan tanto **IA clásica** como **Deep Learning**, siguiendo un enfoque progresivo desde modelos interpretables hasta arquitecturas más complejas.
 
 ---
 
-## Resumen de prácticas
+## Áreas trabajadas
 
-| Práctica | Tema principal | Enfoque | Enlaces |
+- Sistemas de inferencia difusa
+- Algoritmos evolutivos y optimización
+- Visión artificial con redes neuronales convolucionales
+- Procesamiento de lenguaje natural
+- Análisis y modelado de series temporales
+- Aprendizaje por refuerzo y control
+
+Cada proyecto incluye:
+- Notebook ejecutable (Google Colab o local)
+- Explicación metodológica
+- Análisis de resultados y visualizaciones
+- Documentación técnica clara y estructurada
+
+---
+
+## Resumen de proyectos
+
+| Proyecto | Técnica principal | Problema abordado | Enlaces |
 |---|---|---|---|
-| **P01 — Lógica Difusa** | Segmentación de clientes | Sistemas de inferencia difusa | [README](./P01-%20logica_difusa/README.md) · [Colab](https://colab.research.google.com/drive/1ruykcEmRXXTY-H-4MhMYp8vauJ88DJfW) |
-| **P02 — Algoritmos Genéticos** | Optimización combinatoria | Algoritmos evolutivos | [README](./P02-algoritmos_geneticos/README.md) · [Colab](https://colab.research.google.com/drive/1cIxw0WI3K3NtY1zSIRw_XrghZezxTzq5) |
-| **P03 — Redes Neuronales Convolucionales** | Visión artificial | CNNs y Transfer Learning | [README](./P03-Image_processing/README.md) · [Colab](https://colab.research.google.com/drive/1jsZr0jfd-R1UQV-Abvkv_dDz1Wik-ysg?usp=sharing) |
-| **P04 — Procesamiento de Texto** | NLP | ML clásico y Deep Learning | [README](./P04-Procesamiento_texto/README.md) · [Colab](https://colab.research.google.com/drive/1kGrrRnJA9k_1zleUI0RNllDBPvq1yRqq?usp=sharing) |
-| **P05 — Series Temporales** | Análisis financiero | Clustering y modelos latentes | [README](./P05-Series_temporales/README.md) · [Colab](https://drive.google.com/file/d/1EEco7v2E7LW_2GysjM_27587RZR2JE88/view?usp=sharing) |
-| **P06 — Aprendizaje por Refuerzo** | Control y decisión | Q-Learning y Deep RL | [README](./P06-Reinforcement_learning/README.md) · [Colab](https://colab.research.google.com/drive/1nY6Swf_hZ8A9Y3v_FOUotUELByYzvGlz?usp=sharing) |
+| **Lógica Difusa** | Sistemas difusos | Segmentación de clientes en retail | [README](./P01-%20logica_difusa/README.md) · [Colab](https://colab.research.google.com/drive/1ruykcEmRXXTY-H-4MhMYp8vauJ88DJfW) |
+| **Algoritmos Genéticos** | Optimización evolutiva | Selección óptima de cestas de productos | [README](./P02-algoritmos_geneticos/README.md) · [Colab](https://colab.research.google.com/drive/1cIxw0WI3K3NtY1zSIRw_XrghZezxTzq5) |
+| **CNNs** | Deep Learning | Clasificación de imágenes (Fashion-MNIST) | [README](./P03-Image_processing/README.md) · [Colab](https://colab.research.google.com/drive/1jsZr0jfd-R1UQV-Abvkv_dDz1Wik-ysg) |
+| **NLP** | ML + Transformers | Detección de texto humano vs IA | [README](./P04-Procesamiento_texto/README.md) · [Colab](https://colab.research.google.com/drive/1kGrrRnJA9k_1zleUI0RNllDBPvq1yRqq) |
+| **Series Temporales** | Clustering + VAE | Análisis de series financieras (S&P 500) | [README](./P05-Series_temporales/README.md) · [Notebook](https://drive.google.com/file/d/1EEco7v2E7LW_2GysjM_27587RZR2JE88) |
+| **Reinforcement Learning** | Q-Learning y DQN | Control en entorno MountainCar-v0 | [README](./P06-Reinforcement_learning/README.md) · [Colab](https://colab.research.google.com/drive/1nY6Swf_hZ8A9Y3v_FOUotUELByYzvGlz) |
 
 ---
 
-## Descripción de las prácticas
+## Descripción de proyectos
 
-### P01 — Lógica Difusa
-Implementación de un **sistema de inferencia difusa** aplicado a la segmentación de clientes en un contexto de retail.  
-Se definen variables lingüísticas, funciones de pertenencia y reglas difusas para clasificar clientes según su comportamiento de compra.  
-El resultado final se exporta en formato estructurado para su posterior análisis.
-
----
-
-### P02 — Algoritmos Genéticos
-Diseño de un **algoritmo genético** para resolver un problema de optimización combinatoria.  
-El objetivo es seleccionar subconjuntos óptimos de productos maximizando simultáneamente la rentabilidad y la diversidad.  
-Se analizan operadores de selección, cruce, mutación y función de fitness.
+### Sistemas Difusos — Segmentación de clientes
+Diseño de un sistema de inferencia difusa con variables lingüísticas y reglas interpretables para clasificar clientes según su comportamiento de compra.  
+Se analiza el valor de los sistemas difusos frente a enfoques puramente numéricos en problemas con incertidumbre.
 
 ---
 
-### P03 — Redes Neuronales Convolucionales
-Estudio experimental sobre **clasificación de imágenes** utilizando el conjunto Fashion-MNIST.  
-Se comparan modelos entrenados desde cero con enfoques de **Transfer Learning**, incorporando técnicas de data augmentation y análisis de activaciones internas.
+### Algoritmos Genéticos — Optimización combinatoria
+Implementación de un algoritmo genético para resolver un problema de selección óptima bajo múltiples criterios.  
+Se estudia el impacto de los operadores evolutivos y la definición de la función de fitness en la calidad de las soluciones.
 
 ---
 
-### P04 — Procesamiento de Texto
-Pipeline completo de **procesamiento de lenguaje natural** para la clasificación de textos generados por humanos frente a textos generados por IA.  
-Incluye análisis exploratorio, modelos clásicos de Machine Learning, redes LSTM y modelos Transformer, junto con técnicas de interpretación y visualización de atenciones.
+### Redes Neuronales Convolucionales — Visión artificial
+Comparativa entre modelos entrenados desde cero y modelos con Transfer Learning aplicados a Fashion-MNIST.  
+Incluye análisis experimental, data augmentation y estudio del comportamiento interno de las redes.
 
 ---
 
-### P05 — Series Temporales
-Análisis de **series temporales financieras** mediante segmentación en subseries y clustering.  
-Se emplean ventanas deslizantes, representaciones simbólicas y modelos en espacio latente (VAE) para identificar patrones temporales y perfiles de comportamiento.
+### Procesamiento de Lenguaje Natural — Texto humano vs IA
+Pipeline completo de NLP que combina análisis exploratorio, modelos clásicos, redes LSTM y Transformers.  
+Se incorporan técnicas de interpretación para entender las decisiones del modelo en un contexto actual y relevante.
 
 ---
 
-### P06 — Aprendizaje por Refuerzo
-Resolución del entorno **MountainCar-v0** comparando enfoques de **Q-Learning tabular** y **Deep Q-Networks (DQN)**.  
-Se estudia el impacto de la discretización del espacio de estados y se analizan métricas de convergencia y rendimiento del agente.
+### Series Temporales — Análisis financiero
+Segmentación y clustering de subseries temporales utilizando representaciones simbólicas y modelos en espacio latente.  
+El proyecto explora patrones de comportamiento y perfiles temporales en datos reales del mercado financiero.
 
 ---
 
-## Estructura del repositorio
-
-Cada práctica sigue una organización homogénea:
-
-- `README.md` — explicación teórica, metodología y resultados
-- `notebook/` — notebook principal ejecutable
-- `docs/` — figuras, imágenes y recursos gráficos
-- `data/` — datos de entrada y salida (cuando aplica)
+### Aprendizaje por Refuerzo — Control y decisión
+Resolución del entorno MountainCar-v0 mediante Q-Learning tabular y Deep Q-Networks.  
+Se comparan ambos enfoques y se analizan las dificultades prácticas del aprendizaje por refuerzo en espacios continuos.
 
 ---
 
-## Ejecución de los notebooks
+## Tecnologías y herramientas
 
-**Google Colab (recomendado)**  
-Acceder al enlace correspondiente y ejecutar el notebook directamente en la nube.
-
-**Ejecución local**  
-Abrir el notebook desde el directorio `notebook/` utilizando Jupyter Notebook o Visual Studio Code.
+- Python
+- NumPy, Pandas, Matplotlib, Seaborn
+- scikit-learn
+- TensorFlow / Keras
+- PyTorch (cuando aplica)
+- Stable-Baselines3
+- Google Colab
 
 ---
 
-## Autora
-**Katrin Muñoz Errasti**  
-Laboratorio de Inteligencia Artificial · Universidad de Deusto
+## Aprendizajes clave
+
+- Diferencias prácticas entre modelos interpretables y modelos de Deep Learning.
+- Importancia de la representación de los datos y del estado en problemas de IA.
+- Limitaciones reales de los modelos cuando se aplican a datos no ideales.
+- Valor del análisis experimental frente a una implementación “caja negra”.
