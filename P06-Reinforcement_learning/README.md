@@ -191,18 +191,31 @@ Ambos vídeos se grabaron con la política final (sin exploración): en Q-Learni
 En esta demostración se aprecia cómo el agente tabular aplica la estrategia de balanceo, pero con una política más “a saltos” debido a la discretización en buckets. Aun así, es capaz de alcanzar la bandera en la mayoría de ejecuciones.
 
 <div align="center">
-  <video src="./docs/videos/qlearning_evidence.mp4" width="900" controls muted></video>
-  <p><i>Demostración Q-Learning (azul): política greedy sobre la Q-table.</i></p>
+
+https://github.com/user-attachments/assets/9468eac2-1dfe-46f9-9b2d-b04e488c358a
+
+  <p>
+    <i>Si GitHub no lo muestra arriba, abre el vídeo desde el repo:</i>
+    <a href="./docs/videos/qlearning_evidence.mp4"><b>qlearning_evidence.mp4</b></a>
+  </p>
 </div>
+
+---
 
 ### 5.2 Demo — DQN (Deep RL)
 
 En este caso, el agente trabaja con estado continuo y su control es claramente más fino: llega a la cima de forma más consistente y normalmente en menos pasos.
 
 <div align="center">
-  <video src="./docs/videos/dqn_evidence.mp4" width="900" controls muted></video>
-  <p><i>Demostración DQN (verde): política determinista del mejor modelo guardado.</i></p>
+  
+https://github.com/user-attachments/assets/b0a31b88-43d2-4cc5-a27e-ff2c79db4644
+  
+  <p>
+    <i>Si GitHub no lo muestra arriba, abre el vídeo desde el repo:</i>
+    <a href="./docs/videos/dqn_evidence.mp4"><b>dqn_evidence.mp4</b></a>
+  </p>
 </div>
+
 
 ---
 
@@ -211,15 +224,7 @@ En este caso, el agente trabaja con estado continuo y su control es claramente m
 ```text
 P06-Reinforcement_learning/
 ├── docs/
-│   ├── images/
-│   │   ├── qlearning_learning_curve.png
-│   │   ├── qlearning_eval_consistency_efficiency.png
-│   │   ├── qlearning_policy_map.png
-│   │   ├── dqn_learning_curve.png
-│   │   └── dqn_eval_consistency_efficiency.png
 │   └── videos/
-│       ├── qlearning_evidence.mp4
-│       └── dqn_evidence.mp4
 ├── notebook/
 │   └── Práctica_06_Reinforcement_learning.ipynb
 └── README.md
