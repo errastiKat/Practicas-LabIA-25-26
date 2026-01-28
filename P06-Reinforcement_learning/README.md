@@ -23,7 +23,6 @@ Comparativa completa entre un enfoque **clásico** (Q-table con buckets) y un en
 
 Carpeta del proyecto: **`P06-Reinforcement_learning`**  
 Convención visual: **Q-Learning = azul** · **DQN = verde**  
-Se incluyen **dos vídeos** (uno por enfoque).
 
 ---
 
@@ -49,8 +48,8 @@ flowchart TD
   A["MountainCar-v0<br/>(estado continuo: posición, velocidad)"] --> B["Setup (Colab vs Local)<br/>instalación + render vídeo"]
   B --> C["Q-Learning tabular<br/>(discretización BUCKETS)"]
   B --> D["DQN (SB3)<br/>(estado continuo)"]
-  C --> E["Evaluación + gráficas + vídeo"]
-  D --> F["Evaluación + gráficas + vídeo"]
+  C --> E["Evaluación + visualizaciones"]
+  D --> F["Evaluación + visualizaciones"]
   E --> G["Comparativa final"]
   F --> G
 ````
@@ -63,7 +62,7 @@ flowchart TD
 * [2. Enfoque 1 — Q-Learning manual (tabular)](#2-enfoque-1--q-learning-manual-tabular)
 * [3. Enfoque 2 — DQN (Deep Q-Network)](#3-enfoque-2--dqn-deep-q-network)
 * [4. Resultados y comparativa](#4-resultados-y-comparativa)
-* [5. Evidencias y archivos](#5-evidencias-y-archivos)
+* [5. Demostraciones y visualizaciones](#5-demostraciones-y-visualizaciones)
 * [6. Estructura del proyecto](#6-estructura-del-proyecto)
 * [7. Autoría](#7-autoría)
 
@@ -105,7 +104,7 @@ La política de entrenamiento es **epsilon-greedy** (explorar al inicio, explota
 
 ### 2.2 Lo que se observa durante el aprendizaje
 
-La curva de aprendizaje muestra un patrón muy característico en entornos con recompensa escasa: durante miles de episodios el agente se mantiene en **-200**, hasta que por exploración descubre trayectorias que se acercan a la cima y la media móvil empieza a subir.
+La curva de aprendizaje muestra el patrón típico de entornos con recompensa escasa: durante miles de episodios el agente se mantiene en **-200**, hasta que por exploración descubre trayectorias útiles y la media móvil empieza a subir.
 
 <div align="center">
   <img src="./docs/images/qlearning_learning_curve.png" alt="Curva de aprendizaje Q-Learning" width="900"/>
@@ -114,20 +113,16 @@ La curva de aprendizaje muestra un patrón muy característico en entornos con r
 
 ### 2.3 Evaluación: consistencia y eficiencia
 
-Para evaluar la política final, se desactiva la exploración (política greedy pura) y se ejecutan 20 episodios.
-Aquí interesa ver **dos cosas a la vez**:
-
-* *Consistencia*: ¿resuelve el problema de forma repetible o depende mucho del azar?
-* *Eficiencia*: cuando lo resuelve, ¿lo hace con pocos pasos?
+En evaluación determinista (sin exploración) se ejecutan 20 episodios para medir si la política es repetible (consistencia) y cuántos pasos necesita (eficiencia).
 
 <div align="center">
   <img src="./docs/images/qlearning_eval_consistency_efficiency.png" alt="Evaluación Q-Learning" width="900"/>
-  <p><i>Q-Learning (azul): recompensas por episodio y pasos para llegar a la meta (20 episodios).</i></p>
+  <p><i>Q-Learning (azul): recompensas y pasos por episodio (20 episodios).</i></p>
 </div>
 
 ### 2.4 Interpretación de la política aprendida
 
-Un punto fuerte del enfoque tabular es que permite “abrir la caja” y visualizar qué acción elige el agente en cada región discretizada del espacio posición-velocidad.
+La visualización del mapa de política permite inspeccionar qué acción elige el agente en cada región discretizada del espacio posición-velocidad.
 
 <div align="center">
   <img src="./docs/images/qlearning_policy_map.png" alt="Mapa de política Q-Learning" width="650"/>
@@ -141,30 +136,16 @@ Un punto fuerte del enfoque tabular es que permite “abrir la caja” y visuali
 ### 3.1 Idea central
 
 DQN evita discretizar y aprende directamente sobre el estado continuo mediante una red neuronal MLP que aproxima `Q(s,a)`.
-Esto permite una política más fina y suele mejorar estabilidad y eficiencia.
-
-Además, incorpora mecanismos que estabilizan el aprendizaje:
-
-* replay buffer
-* target network
-* epsilon scheduling
+Esto permite una política más fina y mejora estabilidad y eficiencia.
 
 ### 3.2 Ajustes clave realizados en la práctica
 
-En este entorno, la estabilidad depende fuertemente de los hiperparámetros:
-
 * **Learning rate:** 0.01 provocaba oscilaciones y estancamiento en -200 → se redujo a **4e-3**.
-* **Best model:** se implementó `EvalCallback` para guardar automáticamente el **mejor checkpoint** (`best_model`).
-* **Parada temprana:** `StopTrainingOnRewardThreshold` con umbral **-110** para detener al converger (reduciendo el tiempo total).
-* **Exploración:** ajustar `exploration_fraction` permitió descubrir la meta mucho antes y acelerar el ciclo completo.
+* **Best model:** `EvalCallback` guarda automáticamente el **mejor checkpoint** (`best_model`).
+* **Parada temprana:** `StopTrainingOnRewardThreshold` (umbral **-110**) para detener al converger.
+* **Exploración:** ajustar `exploration_fraction` aceleró el descubrimiento de la meta.
 
 ### 3.3 Evolución del entrenamiento
-
-La curva verde refleja tres fases típicas:
-
-1. estancamiento inicial mientras se llena el buffer
-2. primera mejora al “descubrir” el balanceo
-3. mejora acelerada y estabilización
 
 <div align="center">
   <img src="./docs/images/dqn_learning_curve.png" alt="Curva de aprendizaje DQN" width="900"/>
@@ -172,11 +153,6 @@ La curva verde refleja tres fases típicas:
 </div>
 
 ### 3.4 Evaluación: consistencia y eficiencia
-
-En evaluación determinista (20 episodios), la diferencia clave se ve en dos señales:
-
-* barras con recompensas muy similares (baja varianza)
-* pasos claramente más bajos que en Q-Learning
 
 <div align="center">
   <img src="./docs/images/dqn_eval_consistency_efficiency.png" alt="Evaluación DQN" width="900"/>
@@ -200,29 +176,33 @@ En evaluación determinista (20 episodios), la diferencia clave se ve en dos se�
 
 ### 4.2 Conclusión técnica
 
-* **Q-Learning** es útil como baseline y para interpretar la política, pero la discretización limita el control fino y aumenta la variabilidad.
-* **DQN** domina el problema: al trabajar sobre estado continuo, aprende un control más preciso del balanceo, logra **100% éxito** y reduce pasos de ~164 a ~98.
+* **Q-Learning** es un baseline muy útil y además permite interpretar la política, pero la discretización limita el control fino y aumenta la variabilidad.
+* **DQN** domina el problema: aprende un control más preciso del balanceo, logra **100% éxito** y reduce pasos de ~164 a ~98.
 
 ---
 
-## 5. Evidencias y archivos
+## 5. Demostraciones y visualizaciones
 
-### 5.1 Vídeos (subir ambos)
+Aquí se muestra, de forma integrada, cómo se comporta cada agente **en ejecución real**.
+Ambos vídeos se grabaron con la política final (sin exploración): en Q-Learning usando `argmax(Q)`, y en DQN con inferencia determinista del mejor checkpoint.
 
-* `./docs/videos/qlearning_evidence.mp4` — demostración con política greedy Q-Learning
-* `./docs/videos/dqn_evidence.mp4` — demostración DQN determinista (modelo best)
+### 5.1 Demo — Q-Learning (Manual)
 
-> Recomendación: si pesan mucho, subirlos como *Release assets* o usando Git LFS.
+En esta demostración se aprecia cómo el agente tabular aplica la estrategia de balanceo, pero con una política más “a saltos” debido a la discretización en buckets. Aun así, es capaz de alcanzar la bandera en la mayoría de ejecuciones.
 
-### 5.2 Imágenes incluidas en el README
+<div align="center">
+  <video src="./docs/videos/qlearning_evidence.mp4" width="900" controls muted></video>
+  <p><i>Demostración Q-Learning (azul): política greedy sobre la Q-table.</i></p>
+</div>
 
-Guardar en `./docs/images/`:
+### 5.2 Demo — DQN (Deep RL)
 
-* `qlearning_learning_curve.png`
-* `qlearning_eval_consistency_efficiency.png`
-* `qlearning_policy_map.png`
-* `dqn_learning_curve.png`
-* `dqn_eval_consistency_efficiency.png`
+En este caso, el agente trabaja con estado continuo y su control es claramente más fino: llega a la cima de forma más consistente y normalmente en menos pasos.
+
+<div align="center">
+  <video src="./docs/videos/dqn_evidence.mp4" width="900" controls muted></video>
+  <p><i>Demostración DQN (verde): política determinista del mejor modelo guardado.</i></p>
+</div>
 
 ---
 
@@ -232,7 +212,14 @@ Guardar en `./docs/images/`:
 P06-Reinforcement_learning/
 ├── docs/
 │   ├── images/
+│   │   ├── qlearning_learning_curve.png
+│   │   ├── qlearning_eval_consistency_efficiency.png
+│   │   ├── qlearning_policy_map.png
+│   │   ├── dqn_learning_curve.png
+│   │   └── dqn_eval_consistency_efficiency.png
 │   └── videos/
+│       ├── qlearning_evidence.mp4
+│       └── dqn_evidence.mp4
 ├── notebook/
 │   └── Práctica_06_Reinforcement_learning.ipynb
 └── README.md
